@@ -18,6 +18,7 @@ TaskStatus - enum
 
 =====================================
 
+
 class Manager
 
 Integer id
