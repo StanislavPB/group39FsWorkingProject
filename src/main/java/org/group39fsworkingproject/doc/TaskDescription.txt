@@ -1,0 +1,125 @@
+Написать приложение для учета задач пользователя
+
+Task
+Manager
+Role для manager
+TaskStatus - enum
+
+
+- addTask
+- findAllTask
+- findTaskById
+- findTaskByManager
+
+- addManager
+- findAllManager
+- findManagerById
+- findManagerByEmail
+
+=====================================
+
+class Manager
+
+Integer id
+String managerName
+String password
+String email
+Role role
+
+
+class Task
+
+Integer id
+String taskName
+String taskDescription
+Manager manager
+Date createDate
+Date lastUpdate
+Date deadline
+TaskStatus status
+
+===========================================
+
+DTO
+
+Manager
+- ManagerCreateRequestDto
+        String managerName
+        String password
+        String email
+
+- ManagerCreateResponseDto
+        Integer id
+        String managerName
+        Role role
+
+- ManagerResponseDto
+        Integer id
+        String managerName
+        String email
+        Role role
+
+Task
+
+- TaskCreateRequestDto
+    String taskName
+    String taskDescription
+    Date deadline
+    String managerEmail
+
+- TaskCreateResponseDto
+    Integer id
+    String taskName
+    String taskDescription
+    Date createDate
+    Date lastUpdate
+    Date deadline
+    TaskStatus status
+    ManagerResponseDto managerDto
+
+
+- TaskResponseDto
+    Integer id
+    String taskName
+    String taskDescription
+    Date createDate
+    Date lastUpdate
+    Date deadline
+    TaskStatus status
+
+===============================================
+
+API
+
+------------------ manager ----------------------------
+post - для добавления manager
+public ManagerCreateResponseDto createNewManager(ManagerCreateRequestDto request)
+
+JSON запрос
+{
+"managerName" : ...,
+"password": ...,
+"email": ...
+}
+
+
+
+get - найти всех
+public List<ManagerResponseDto> findAllManagers()
+
+------------------ task ----------------------------
+
+post - для добавления task
+public TaskCreateResponseDto createNewTask(TaskCreateRequestDto request)
+
+JSON запрос
+{
+ "taskName":
+ "taskDescription":
+ "deadline":
+ "managerEmail":
+}
+
+
+
+
