@@ -13,6 +13,7 @@ import org.group39fsworkingproject.service.exception.AlreadyExistException;
 import org.group39fsworkingproject.service.exception.NotFoundException;
 import org.group39fsworkingproject.service.util.ManagerConverter;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +26,7 @@ public class ManagerService {
     private final RoleRepository roleRepository;
     private final ManagerConverter converter;
 
-
+@Transactional
     public ManagerCreateResponseDto createManager(ManagerCreateRequestDto request){
 
             if (repository.findByEmail(request.getEmail()).isEmpty()) {

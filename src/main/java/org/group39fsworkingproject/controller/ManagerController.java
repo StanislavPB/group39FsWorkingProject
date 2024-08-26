@@ -1,5 +1,6 @@
 package org.group39fsworkingproject.controller;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.group39fsworkingproject.dto.Response;
 import org.group39fsworkingproject.dto.managerDto.ManagerCreateRequestDto;
@@ -20,7 +21,7 @@ public class ManagerController {
     private final ManagerService service;
 
     @PostMapping
-    public ResponseEntity<ManagerCreateResponseDto> createNewManager(@RequestBody ManagerCreateRequestDto request){
+    public ResponseEntity<ManagerCreateResponseDto> createNewManager(@Valid @RequestBody ManagerCreateRequestDto request){
         return new ResponseEntity(service.createManager(request),HttpStatus.CREATED);
     }
 
