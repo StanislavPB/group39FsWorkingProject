@@ -6,6 +6,7 @@ import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.group39fsworkingproject.annotation.OurValidation;
 
 import java.util.List;
 
@@ -24,8 +25,7 @@ public class Manager {
     @Pattern(regexp = "^[A-Za-z0-9]+$", message = "Manager name can contain only latin characters or digital")
     private String managerName;
 
-    @NotBlank
-    @Size(min = 6)
+    @OurValidation(message = "Пароль не соответствует критериям безопасности")
     private String password;
 
     @NotBlank
